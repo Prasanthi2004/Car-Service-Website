@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a Service - Car Service</title>
+  <link rel="stylesheet" href="css/features.css">
+</head>
+<body class="cs-page">
+
+  <header class="cs-header">
+    <a href="index.html">&larr; Back to Car Service</a>
+    <nav aria-label="Page sections">
+      <a href="#book">Book a service</a>
+      <a href="#advisor">AI advisor</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="book" class="cs-section">
+      <div class="cs-inner">
+        <h1 class="cs-title">Book a Service</h1>
+        <p class="cs-sub">Pick your services, choose a date and time, and get an instant estimate. This is a demo: bookings are saved only in this browser and prices are samples.</p>
+        <div class="cs-grid">
+          <form id="booking-form" class="cs-card" novalidate>
+            <div class="cs-two">
+              <div class="cs-field">
+                <label for="bk-name">Your name</label>
+                <input id="bk-name" type="text" autocomplete="name">
+                <p class="cs-error" id="err-name" role="alert"></p>
+              </div>
+              <div class="cs-field">
+                <label for="bk-phone">Mobile number</label>
+                <input id="bk-phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10 digits">
+                <p class="cs-error" id="err-phone" role="alert"></p>
+              </div>
+            </div>
+            <div class="cs-two">
+              <div class="cs-field">
+                <label for="bk-email">Email (optional)</label>
+                <input id="bk-email" type="email" autocomplete="email">
+                <p class="cs-error" id="err-email" role="alert"></p>
+              </div>
+              <div class="cs-field">
+                <label for="bk-model">Car make and model</label>
+                <input id="bk-model" type="text" placeholder="Example: Maruti Swift">
+                <p class="cs-error" id="err-model" role="alert"></p>
+              </div>
+            </div>
+            <fieldset class="cs-field">
+              <legend>Services</legend>
+              <div id="bk-services" class="cs-checks"></div>
+              <p class="cs-error" id="err-services" role="alert"></p>
+            </fieldset>
+            <div class="cs-two">
+              <div class="cs-field">
+                <label for="bk-date">Date</label>
+                <input id="bk-date" type="date">
+                <p class="cs-error" id="err-date" role="alert"></p>
+              </div>
+              <div class="cs-field">
+                <label for="bk-slot">Time slot</label>
+                <select id="bk-slot" disabled><option value="">Choose a date first</option></select>
+                <p class="cs-error" id="err-slot" role="alert"></p>
+              </div>
+            </div>
+            <div class="cs-field">
+              <label for="bk-notes">Notes (optional)</label>
+              <textarea id="bk-notes" rows="3" placeholder="Anything the mechanic should know"></textarea>
+            </div>
+            <button type="submit" class="cs-btn cs-primary">Confirm booking</button>
+            <p id="bk-confirm" class="cs-confirm" role="status" hidden></p>
+          </form>
+
+          <aside class="cs-card">
+            <h2>Your estimate</h2>
+            <ul id="estimate-list" class="cs-list"></ul>
+            <p class="cs-total">Total: <strong id="estimate-total"></strong></p>
+            <h2>My bookings</h2>
+            <ul id="booking-list" class="cs-list"></ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="advisor" class="cs-section cs-alt">
+      <div class="cs-inner">
+        <h2 class="cs-title">AI Service Advisor</h2>
+        <p class="cs-sub">Describe what is wrong with your car. The advisor suggests services and shows how urgent it is. It is a rule-based tool that gives general guidance, not a mechanic's diagnosis.</p>
+        <div class="cs-grid">
+          <form id="advisor-form" class="cs-card" novalidate>
+            <label for="advisor-input">What is the problem?</label>
+            <textarea id="advisor-input" rows="4" placeholder="Example: brakes squeal when I stop"></textarea>
+            <p class="cs-hint">Or try an example:</p>
+            <div id="advisor-examples" class="cs-chips"></div>
+            <div class="cs-row">
+              <div>
+                <label for="adv-km">Km since last service (optional)</label>
+                <input id="adv-km" type="number" min="0" inputmode="numeric">
+              </div>
+              <div>
+                <label for="adv-months">Months since last service (optional)</label>
+                <input id="adv-months" type="number" min="0" inputmode="numeric">
+              </div>
+            </div>
+            <p class="cs-error" id="err-advisor" role="alert"></p>
+            <button type="submit" class="cs-btn cs-primary">Analyze</button>
+          </form>
+          <div id="advisor-result" class="cs-card" aria-live="polite">
+            <h3>Advisor result</h3>
+            <p class="cs-muted">Your result will appear here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cs-footer">
+    This is our practice project. The prices and bookings are examples and are saved only in your browser.
+  </footer>
+
+  <script src="js/ai.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>
